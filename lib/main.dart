@@ -29,6 +29,7 @@ class _MainPageState extends State<MainPage> {
 
   PageController pageController = new PageController();
   List<String> appBarText = ["Home", "Trending", "Following"];
+  List<Widget> pages = [HomePage(), TrendingPage(), FollowingPage()];
   int _selectedindex = 0;
 
   @override
@@ -65,15 +66,10 @@ class _MainPageState extends State<MainPage> {
             _selectedindex = value;
           });
         },
-        children: <Widget>[
-          HomePage(),
-          TrendingPage(),
-          FollowingPage()
-        ],
+        children: pages
       ),
 
       bottomNavigationBar: BottomNavigationBar(
-        
         items: [
           BottomNavigationBarItem(
             icon: _selectedindex == 0 ? 
@@ -97,6 +93,7 @@ class _MainPageState extends State<MainPage> {
         onTap: (value) {
           setState(() {
             _selectedindex = value;
+            pageController.jumpToPage(_selectedindex);
           });
         },
         currentIndex: _selectedindex,

@@ -78,17 +78,7 @@ Widget advertisement(context) {
               ),
               Text("Advertisement", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white)),
               SizedBox(width: MediaQuery.of(context).size.width - 340,),
-              Container(
-                height: 45,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8)
-                ),
-                child: Center(
-                  child: Text("OPEN", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                ),
-              )
+              Image.asset("assets/SmallButtonad.png", height: 50, width: 90,)
             ],
           ),
         ),
@@ -118,5 +108,17 @@ Widget listViewTrending(context) {
         SizedBox(width: 15,),
       ],
     ),
+  );
+}
+
+
+//Widget for text in channel page
+Widget textInChannelPage(String number, String numberType) {
+  return Column(
+    children: <Widget>[
+      Text(number, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey[700]),),
+      SizedBox(height: 5,),
+      Text(numberType, style: TextStyle(color: Colors.grey[600], fontSize: 17),)
+    ],
   );
 }
