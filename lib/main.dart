@@ -34,7 +34,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: Size.fromHeight(57),
         child: AppBar(
           backgroundColor: Colors.white,
           title: Container(
@@ -42,9 +42,9 @@ class _MainPageState extends State<MainPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Image.asset("assets/Profile1.png", height: 40, width: 40,),
+                Image.asset("assets/Profile1.png", height: 43, width: 43,),
                 Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey[500]),),
-                Icon(Icons.search)
+                Image.asset("assets/lightsearch.png", height: 20, width: 25,),
               ],
             ),
           )
