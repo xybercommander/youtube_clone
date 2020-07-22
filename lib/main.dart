@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: MainPage(),
     );
@@ -26,14 +27,19 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   PageController pageController = new PageController();
+  List<String> appBarText = ["Home", "Trending", "Following"];
   int _selectedindex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey),),
+        centerTitle: true,
         backgroundColor: Colors.white,
-        elevation: 2,
+        actionsIconTheme: IconThemeData(
+          color: Colors.redAccent
+        ),
       ),
 
       body: PageView(
@@ -61,18 +67,21 @@ class _MainPageState extends State<MainPage> {
             title: Container(width: 2,height: 2)
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            title: Text("lol")
+            icon: _selectedindex == 1 ? 
+              Image.asset("assets/Group160.png", height: 35, width: 35,) :
+              Image.asset("assets/Group157.png", height: 35, width: 35,),
+            title: Container(width: 2,height: 2)
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            title: Text("lol")
+            icon: _selectedindex == 2 ? 
+              Image.asset("assets/Group164.png", height: 35, width: 35,) :
+              Image.asset("assets/Group158.png", height: 35, width: 35,),
+            title: Container(width: 2,height: 2)
           ),
         ],
         onTap: (value) {
           setState(() {
-            // _selectedindex = value;
-            print(value);
+            _selectedindex = value;
           });
         },
         currentIndex: _selectedindex,
