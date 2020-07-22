@@ -52,10 +52,13 @@ class _MainPageState extends State<MainPage> {
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("assets/LightMode/Follow.png"),
-            title: Text("lol")
+            icon: _selectedindex == 0 ? 
+              Image.asset("assets/Group156.png", height: 35, width: 35,) :
+              Image.asset("assets/Group184.png", height: 35, width: 35,),
+            title: Container(width: 2,height: 2)
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
