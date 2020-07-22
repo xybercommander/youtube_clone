@@ -35,11 +35,12 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey),),
-        centerTitle: true,
+        // centerTitle: true,
         backgroundColor: Colors.white,
-        actionsIconTheme: IconThemeData(
-          color: Colors.redAccent
-        ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search), onPressed: null)
+        ],
+        leading: Container(color: Colors.red, height: 20, width: 20,),
       ),
 
       body: PageView(
