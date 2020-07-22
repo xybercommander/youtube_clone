@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/views/following.dart';
 import 'package:youtube_clone/views/home.dart';
+import 'package:youtube_clone/views/mychannel.dart';
 import 'package:youtube_clone/views/trending.dart';
 
 void main() {
@@ -42,7 +43,12 @@ class _MainPageState extends State<MainPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Image.asset("assets/Profile1.png", height: 43, width: 43,),
+                GestureDetector(
+                  child: Image.asset("assets/Profile1.png", height: 43, width: 43,),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyChannel(),));
+                  },
+                ),
                 Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey[500]),),
                 Image.asset("assets/lightsearch.png", height: 20, width: 25,),
               ],

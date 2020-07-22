@@ -16,7 +16,7 @@ Widget videoThumbnail(context) {
 Widget fullVideoLink(context) {
   return Column(
     children: <Widget>[
-      SizedBox(height: 15,),
+      SizedBox(height: 10,),
       Container(
         height: MediaQuery.of(context).size.height - 480,
         width: MediaQuery.of(context).size.width,
@@ -95,5 +95,28 @@ Widget advertisement(context) {
       ),
       SizedBox(height: 20,),
     ],
+  );
+}
+
+//List view for trending page
+Widget listViewTrending(context) {
+  return Container(
+    padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+    width: MediaQuery.of(context).size.width,
+    height: 100,
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        SizedBox(width: 15,),
+        Image.asset("assets/music.png", height: 60, width: 105,),
+        SizedBox(width: 15,),
+        Image.asset("assets/sports.png", height: 60, width: 105,),
+        SizedBox(width: 15,),
+        Image.asset("assets/games.png", height: 60, width: 105,),
+        SizedBox(width: 15,),
+        Image.asset("assets/movies.png", height: 60, width: 105,),
+        SizedBox(width: 15,),
+      ],
+    ),
   );
 }
