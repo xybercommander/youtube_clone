@@ -36,26 +36,25 @@ class _MainPageState extends State<MainPage> {
         elevation: 2,
       ),
 
-      body: Center(
-        child: PageView(
-          controller: pageController,
-          onPageChanged: (value) {
-            setState(() {
-              _selectedindex = value;
-            });
-          },
-          children: <Widget>[
-            HomePage(),
-            TrendingPage(),
-            FollowingPage()
-          ],
-        )
+      body: PageView(
+        controller: pageController,
+        scrollDirection: Axis.horizontal,
+        onPageChanged: (value) {
+          setState(() {
+            _selectedindex = value;
+          });
+        },
+        children: <Widget>[
+          HomePage(),
+          TrendingPage(),
+          FollowingPage()
+        ],
       ),
 
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Image.asset("assets/LightMode/Follow.png"),
             title: Text("lol")
           ),
           BottomNavigationBarItem(
@@ -69,7 +68,8 @@ class _MainPageState extends State<MainPage> {
         ],
         onTap: (value) {
           setState(() {
-            _selectedindex = value;
+            // _selectedindex = value;
+            print(value);
           });
         },
         currentIndex: _selectedindex,
