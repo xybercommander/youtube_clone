@@ -39,6 +39,11 @@ class _MainPageState extends State<MainPage> {
       body: Center(
         child: PageView(
           controller: pageController,
+          onPageChanged: (value) {
+            setState(() {
+              _selectedindex = value;
+            });
+          },
           children: <Widget>[
             HomePage(),
             TrendingPage(),
@@ -50,15 +55,15 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("assets/Light Mode/Group 156.png"),
+            icon: Icon(Icons.add),
             title: Text("lol")
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/Light Mode/Group 160.png"),
+            icon: Icon(Icons.add),
             title: Text("lol")
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/Light Mode/Group 164.png"),
+            icon: Icon(Icons.add),
             title: Text("lol")
           ),
         ],
@@ -66,8 +71,8 @@ class _MainPageState extends State<MainPage> {
           setState(() {
             _selectedindex = value;
           });
-          pageController.jumpToPage(value);
         },
+        currentIndex: _selectedindex,
       ),
     );
   }
