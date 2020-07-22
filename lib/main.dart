@@ -33,14 +33,22 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey),),
-        // centerTitle: true,
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: null)
-        ],
-        leading: Container(color: Colors.red, height: 20, width: 20,),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: AppBar(
+          backgroundColor: Colors.white,
+          title: Container(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Image.asset("assets/Profile1.png", height: 40, width: 40,),
+                Text(appBarText[_selectedindex], style: TextStyle(color: Colors.grey[500]),),
+                Icon(Icons.search)
+              ],
+            ),
+          )
+        )
       ),
 
       body: PageView(
