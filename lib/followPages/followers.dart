@@ -8,6 +8,8 @@ class Follwers extends StatefulWidget {
 
 class _FollwersState extends State<Follwers> {
 
+  bool follow = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

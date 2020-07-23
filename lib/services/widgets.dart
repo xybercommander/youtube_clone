@@ -9,7 +9,7 @@ Widget videoThumbnail(context) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPage()));
     },
     child: Container(
-      height: MediaQuery.of(context).size.height - 560,
+      height: MediaQuery.of(context).size.height - 600,
       width: MediaQuery.of(context).size.width - 34,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
@@ -114,7 +114,7 @@ Widget smallFullVideoLink(context) {
 Widget advertisement(context) {
   return Column(
     children: <Widget>[
-      SizedBox(height: 20,),
+      // SizedBox(height: 20,),
       Container(
         width: MediaQuery.of(context).size.width,
         height: 80,
@@ -132,7 +132,30 @@ Widget advertisement(context) {
                   color: Colors.lightBlueAccent
                 ),
               ),
-              Text("Advertisement", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white)),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SizedBox(height: 8,),
+                  Text("Advertisement", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white)),
+                  Row(
+                    children: <Widget>[
+                      Text("www.site.com", style: TextStyle(fontSize: 10),),
+                      SizedBox(width: 10,),
+                      Container(
+                        height: 20,
+                        width: 75,
+                        child: MaterialButton(
+                          elevation: 0,
+                          onPressed: () {},
+                          child: Text("Sponsered", style: TextStyle(color: Colors.black, fontSize: 8),),
+                          color: Colors.yellow,
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 8,)
+                ],
+              ),
               SizedBox(width: MediaQuery.of(context).size.width - 340,),
               Image.asset("assets/SmallButtonad.png", height: 50, width: 90,)
             ],
