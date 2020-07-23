@@ -83,8 +83,24 @@ class _MyChannelState extends State<MyChannel> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("New Uploads", style: TextStyle(fontSize: 15),),
-                Text("All Videos", style: TextStyle(fontSize: 15),),
+                GestureDetector(
+                  child: Text("New Uploads", style: TextStyle(fontSize: 15),),
+                  onTap: () {
+                    setState(() {
+                      pageIndex = 0;
+                      pageController.jumpToPage(0);
+                    });
+                  },
+                ),
+                GestureDetector(
+                  child: Text("All Videos", style: TextStyle(fontSize: 15),),
+                  onTap: () {
+                    setState(() {
+                      pageIndex = 1;
+                      pageController.jumpToPage(1);
+                    });
+                  },
+                ),
               ],
             ),
           ),

@@ -9,9 +9,7 @@ class _VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("Video"),
-      // ),
+      
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -73,10 +71,31 @@ class _VideoPageState extends State<VideoPage> {
                           ),
                         ],
                       ),
-                    )
+                    ),
+                    SizedBox(height: 30,),
+                    Container(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: <Widget>[
+                          Text("02:21/04:08", style: TextStyle(color: Colors.white, fontSize: 12),),
+                          Spacer(),
+                          IconButton(
+                            icon: Image.asset("assets/resize.png", height: 20, width: 20,),
+                            onPressed: () {
+                              
+                            },
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 10,
+              color: Colors.grey,
             )
           ],
         ),
