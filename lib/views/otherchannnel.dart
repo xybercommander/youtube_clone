@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/ChannelPages/allvideos.dart';
 import 'package:youtube_clone/ChannelPages/newUploads.dart';
+import 'package:youtube_clone/ChannelPages/otherNewUploads.dart';
+import 'package:youtube_clone/ChannelPages/otherallvideos.dart';
 import 'package:youtube_clone/services/widgets.dart';
 
-class MyChannel extends StatefulWidget {
+class OtherChannel extends StatefulWidget {
   @override
-  _MyChannelState createState() => _MyChannelState();
+  _OtherChannelState createState() => _OtherChannelState();
 }
 
-class _MyChannelState extends State<MyChannel> {
+class _OtherChannelState extends State<OtherChannel> {
 
   PageController pageController = new PageController();
   int pageIndex = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class _MyChannelState extends State<MyChannel> {
             color: Colors.grey[600]
           ),
           backgroundColor: Colors.white,
-          title: Text("Channel Name", style: TextStyle(color: Colors.grey[500]),),
+          title: Text("Other Channel Name", style: TextStyle(color: Colors.grey[500]),),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -105,8 +106,8 @@ class _MyChannelState extends State<MyChannel> {
               },
               controller: pageController,
               children: <Widget>[
-                NewUploads(),
-                AllVideos()
+                OtherNewUploads(),
+                OtherAllVideos()
               ],
             ),
           )

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/services/widgets.dart';
 
-class AllVideos extends StatefulWidget {
+class OtherAllVideos extends StatefulWidget {
   @override
-  _AllVideosState createState() => _AllVideosState();
+  _OtherAllVideosState createState() => _OtherAllVideosState();
 }
 
-class _AllVideosState extends State<AllVideos> {
+class _OtherAllVideosState extends State<OtherAllVideos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/views/otherchannnel.dart';
 
 // Widget for the video thumbnails
 Widget videoThumbnail(context) {
@@ -40,7 +41,12 @@ Widget fullVideoLink(context) {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: <Widget>[
-                  Text("Channel Name", style: TextStyle(fontSize: 15),),
+                  GestureDetector(
+                    child: Text("Channel Name", style: TextStyle(fontSize: 15),),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => OtherChannel(),));
+                    },
+                  ),
                   SizedBox(width: 10,),
                   Text("2.7k views")
                 ],
@@ -53,6 +59,50 @@ Widget fullVideoLink(context) {
     ],
   );
 }
+
+// Widget for small video link
+Widget smallFullVideoLink(context) {
+  return Container(
+    padding: EdgeInsets.all(16),
+    child: Row(
+      children: <Widget>[
+        Container(
+          height: MediaQuery.of(context).size.height - 655,
+          width: MediaQuery.of(context).size.width - 240,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset("assets/thumbnail.jpg", fit: BoxFit.fill,)
+          ),
+        ),
+        SizedBox(width: 10,),
+        Container(
+          height: MediaQuery.of(context).size.height - 650,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("Video name, Lengthening the title\nfor the idea of the title placement",
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              SizedBox(height: 10,),
+              Text("04:08 min"),
+              SizedBox(height: 10,),
+              GestureDetector(
+                child: Text("Channel Name   2.7k views", style: TextStyle(fontSize: 12),),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OtherChannel(),));
+                },
+              ),
+            ],
+          ),
+        )
+      ],
+    ),
+  );
+}
+
 
 // Widget for the advertisements
 Widget advertisement(context) {
