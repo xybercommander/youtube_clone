@@ -172,3 +172,29 @@ Widget textInChannelPage(String number, String numberType) {
     ],
   );
 }
+
+
+// Widget for list tiles in followers page
+Widget profileListTile(context, String button) {
+  return Container(
+    height: 75,
+    width: MediaQuery.of(context).size.width,
+    child: Row(
+      children: <Widget>[
+        Image.asset("assets/Profile1.png", height: 50, width: 50,),
+        SizedBox(width: 10,),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 20,),
+            Text("Channel Name", style: TextStyle(color: Colors.grey[700], fontSize: 16, fontWeight: FontWeight.bold),),
+            SizedBox(height: 2,),
+            Text("123k followers", style: TextStyle(fontSize: 11),)
+          ],
+        ),
+        Spacer(),
+        Image.asset(button, height: 60, width: 110,)
+      ],
+    ),
+  );
+}

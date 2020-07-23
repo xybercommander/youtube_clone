@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/ChannelPages/allvideos.dart';
 import 'package:youtube_clone/ChannelPages/newUploads.dart';
+import 'package:youtube_clone/followPages/followers.dart';
+import 'package:youtube_clone/followPages/follwing.dart';
 import 'package:youtube_clone/services/widgets.dart';
 
 class MyChannel extends StatefulWidget {
@@ -60,8 +62,18 @@ class _MyChannelState extends State<MyChannel> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 textInChannelPage("140", "Videos"),
-                textInChannelPage("24k", "Followers"),
-                textInChannelPage("24k", "Following")
+                GestureDetector(
+                  child: textInChannelPage("24k", "Followers"),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Follwers(),));
+                  },
+                ),
+                GestureDetector(
+                  child: textInChannelPage("24k", "Following"),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Following(),));
+                  },
+                )
               ],
             ),
           ),
