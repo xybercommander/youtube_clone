@@ -34,7 +34,7 @@ class _VideoPageState extends State<VideoPage> {
                     Row(
                       children: <Widget>[
                         IconButton(
-                          icon: Image.asset("assets/Back.png", height: 20, width: 20,),
+                          icon: Image.asset("assets/Back.png", height: 20, width: 20, color: Colors.white,),
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -61,8 +61,8 @@ class _VideoPageState extends State<VideoPage> {
                             },
                           ),
                           Container(
-                            height: 100,
-                            width: 100,
+                            height: 85,
+                            width: 85,
                             child: Image.asset("assets/playButton.png"),
                           ),
                           IconButton(
