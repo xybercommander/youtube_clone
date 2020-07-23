@@ -96,7 +96,35 @@ class _VideoPageState extends State<VideoPage> {
               width: MediaQuery.of(context).size.width,
               height: 10,
               color: Colors.grey,
-            )
+              child: Row(
+                children: <Widget>[
+                  Image.asset("assets/videoBar.png", height: 200, width: 100,)
+                ],
+              )
+            ),
+            SizedBox(height: 5,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: <Widget>[
+                  Text("2 months ago", style: TextStyle(),),
+                  SizedBox(width: 10,),
+                  Text("2.7 M views"),
+                  Spacer(),
+                  IconButton(icon: Icon(Icons.arrow_drop_down), onPressed: (){})
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20,),
+              child: Text("Video name, Lengthening the title for the idea of title placement",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[700]
+                ),
+              )
+            ),
           ],
         ),
       )
