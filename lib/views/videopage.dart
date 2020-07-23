@@ -47,6 +47,32 @@ class _VideoPageState extends State<VideoPage> {
                           },
                         )
                       ],
+                    ),
+                    SizedBox(height: 30,),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Image.asset("assets/previous.png", height: 20, width: 20,),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          Container(
+                            height: 100,
+                            width: 100,
+                            child: Image.asset("assets/playButton.png"),
+                          ),
+                          IconButton(
+                            icon: Image.asset("assets/next.png", height: 20, width: 20,),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
