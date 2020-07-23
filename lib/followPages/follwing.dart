@@ -17,7 +17,7 @@ class _FollowingState extends State<Following> {
             color: Colors.grey[600]
           ),
           backgroundColor: Colors.white,
-          title: Text("Followers", style: TextStyle(color: Colors.grey[500]),),
+          title: Text("Following", style: TextStyle(color: Colors.grey[500]),),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -58,12 +58,12 @@ class _FollowingState extends State<Following> {
                 child: ListView(
                   scrollDirection: Axis.vertical,
                   children: <Widget>[
-                    profileListTile(context, "assets/lightFollwing.png"),
+                    profileListTile(context, "assets/Unfollow.png"),
+                    profileListTile(context, "assets/Unfollow.png"),
                     profileListTile(context, "assets/lightFollow.png"),
+                    profileListTile(context, "assets/Unfollow.png"),
                     profileListTile(context, "assets/lightFollow.png"),
-                    profileListTile(context, "assets/lightFollwing.png"),
-                    profileListTile(context, "assets/lightFollow.png"),
-                    profileListTile(context, "assets/lightFollwing.png"),
+                    profileListTile(context, "assets/Unfollow.png"),
                   ],
                 ),
               ),
