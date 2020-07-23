@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/helper/constants.dart';
+import 'package:youtube_clone/helper/helperfunctions.dart';
 import 'package:youtube_clone/services/auth.dart';
+import 'package:youtube_clone/services/database.dart';
 import 'package:youtube_clone/services/widgets.dart';
 import 'package:youtube_clone/views/mainpage.dart';
 
@@ -21,11 +24,27 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordTextEditingController = new TextEditingController();
 
   AuthMethods authMethods = new AuthMethods();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
 
+  signMeUp(String email, String password, String channelName) {
+    if(formKey.currentState.validate()) {
 
-  signMeUp(String email, String password) {
-    authMethods.signUpWithEmailAndPassword(email, password);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
+      Map<String, String> userInfoMap = {
+        "channelName" : channelName,
+        "email" : email
+      };
+      HelperFunctions.saveChannelNameSharedPreference(channelName);
+      HelperFunctions.saveUserEmailSharedPreference(email);
+
+      authMethods.signUpWithEmailAndPassword(email, password).then((value) {
+        databaseMethods.uploadUserInfo(userInfoMap);
+        HelperFunctions.saveUserLoggedInSharedPreference(true);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
+      });
+      setState(() {
+        Constants.myChannelName = channelName;
+      });
+    }
   }
 
 
@@ -115,7 +134,7 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(height: 16,),
                 GestureDetector(
                   onTap: (){
-                    signMeUp(emailTextEditingController.text, passwordTextEditingController.text);
+                    signMeUp(emailTextEditingController.text, passwordTextEditingController.text, channelNameTextEditingController.text);
                     print("sign up");
                   },
                   child: Container(

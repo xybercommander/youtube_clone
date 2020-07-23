@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
                 Image.asset("assets/lightsearch.png", height: 20, width: 25,),
               ],
             ),
-          )
+          ),
         )
       ),
 

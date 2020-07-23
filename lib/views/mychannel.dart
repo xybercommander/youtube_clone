@@ -3,6 +3,7 @@ import 'package:youtube_clone/ChannelPages/allvideos.dart';
 import 'package:youtube_clone/ChannelPages/newUploads.dart';
 import 'package:youtube_clone/followPages/followers.dart';
 import 'package:youtube_clone/followPages/follwing.dart';
+import 'package:youtube_clone/helper/constants.dart';
 import 'package:youtube_clone/services/widgets.dart';
 
 class MyChannel extends StatefulWidget {
@@ -26,7 +27,7 @@ class _MyChannelState extends State<MyChannel> {
             color: Colors.grey[600]
           ),
           backgroundColor: Colors.white,
-          title: Text("Channel Name", style: TextStyle(color: Colors.grey[500]),),
+          title: Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[500]),),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -43,14 +44,14 @@ class _MyChannelState extends State<MyChannel> {
         children: <Widget>[
           SizedBox(height: 40,),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Image.asset("assets/Profile1.png", height: 61, width: 61,),
-                SizedBox(width: 0.4,),
-                Text("Channel Name", style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),),
-                SizedBox(width: 15,),
+                SizedBox(width: 20,),
+                Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),),
+                Spacer(),
                 Image.asset("assets/Upload.png", height: 60, width: 110,)
               ],
             ),
