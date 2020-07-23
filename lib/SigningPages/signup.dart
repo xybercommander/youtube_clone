@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/services/auth.dart';
 import 'package:youtube_clone/services/widgets.dart';
+import 'package:youtube_clone/views/mainpage.dart';
 
 class SignUp extends StatefulWidget {
 
@@ -14,9 +16,18 @@ class _SignUpState extends State<SignUp> {
 
   final formKey = GlobalKey<FormState>();
   bool showPassword = false;
-  TextEditingController userNameTextEditingController = new TextEditingController();
+  TextEditingController channelNameTextEditingController = new TextEditingController();
   TextEditingController emailTextEditingController = new TextEditingController();
   TextEditingController passwordTextEditingController = new TextEditingController();
+
+  AuthMethods authMethods = new AuthMethods();
+
+
+  signMeUp(String email, String password) {
+    authMethods.signUpWithEmailAndPassword(email, password);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +58,7 @@ class _SignUpState extends State<SignUp> {
                             "Please provide a valid Username" :
                             null;
                         },
-                        controller: userNameTextEditingController,
+                        controller: channelNameTextEditingController,
                         style: simpleStyle(),
                         decoration: textFieldInputDecoration("channel name")
                       ),
@@ -104,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(height: 16,),
                 GestureDetector(
                   onTap: (){
-                    // signMeUp();
+                    signMeUp(emailTextEditingController.text, passwordTextEditingController.text);
                     print("sign up");
                   },
                   child: Container(
