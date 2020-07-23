@@ -60,9 +60,9 @@ class _FollowingState extends State<Following> {
                   children: <Widget>[
                     profileListTile(context, "assets/Unfollow.png"),
                     profileListTile(context, "assets/Unfollow.png"),
-                    profileListTile(context, "assets/lightFollwing.png"),
+                    profileListTile(context, "assets/blueFollow.png"),
                     profileListTile(context, "assets/Unfollow.png"),
-                    profileListTile(context, "assets/lightFollwing.png"),
+                    profileListTile(context, "assets/blueFollow.png"),
                     profileListTile(context, "assets/Unfollow.png"),
                   ],
                 ),

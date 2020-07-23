@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/views/otherchannnel.dart';
+import 'package:youtube_clone/views/videopage.dart';
 
 // Widget for the video thumbnails
 Widget videoThumbnail(context) {
-  return Container(
-    height: MediaQuery.of(context).size.height - 560,
-    width: MediaQuery.of(context).size.width - 34,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Image.asset("assets/thumbnail.jpg", fit: BoxFit.fill,)
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPage()));
+    },
+    child: Container(
+      height: MediaQuery.of(context).size.height - 560,
+      width: MediaQuery.of(context).size.width - 34,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset("assets/thumbnail.jpg", fit: BoxFit.fill,)
+      ),
     ),
   );
 }
