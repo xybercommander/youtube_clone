@@ -31,7 +31,7 @@ class _MyChannelState extends State<MyChannel> {
               icon: Image.asset("assets/MenuDark.png", height: 20, width: 25,),
               onPressed: () {
                 print("object");
-              },
+              },              
             )
           ],
         ),

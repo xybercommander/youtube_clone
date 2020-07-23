@@ -14,6 +14,7 @@ class _OtherChannelState extends State<OtherChannel> {
 
   PageController pageController = new PageController();
   int pageIndex = 0;
+  bool follow = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,14 @@ class _OtherChannelState extends State<OtherChannel> {
                 SizedBox(width: 0.4,),
                 Text("Channel Name", style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),),
                 SizedBox(width: 15,),
-                Image.asset("assets/Upload.png", height: 60, width: 110,)
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      follow = !follow;
+                    });
+                  },
+                  child: Image.asset(follow == false ? "assets/lightFollow.png" : "assets/lightFollwing.png", height: 60, width: 110,)
+                )
               ],
             ),
           ),
