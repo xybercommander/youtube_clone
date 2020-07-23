@@ -9,7 +9,7 @@ Widget videoThumbnail(context) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPage()));
     },
     child: Container(
-      height: MediaQuery.of(context).size.height - 600,
+      height: MediaQuery.of(context).size.height - 560,
       width: MediaQuery.of(context).size.width - 34,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
@@ -225,5 +225,45 @@ Widget profileListTile(context, String button) {
         Image.asset(button, height: 60, width: 110,)
       ],
     ),
+  );
+}
+
+Widget appBarMain() {
+  return AppBar(
+    backgroundColor: Color.fromRGBO(20, 82, 146, 1),    
+    title: Image.asset("assets/images/chatapp .jpg", height: 90,),
+  );
+}
+
+/* The text field input widget */
+
+InputDecoration textFieldInputDecoration(String hintText) {
+ return InputDecoration(
+    hintText: hintText,
+    hintStyle: TextStyle(
+      color: Colors.white38
+    ),
+      focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.white)
+    ),
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.white)
+    )
+ );
+}
+
+/* Text Field style (Color only) */
+
+TextStyle simpleStyle() {
+  return TextStyle(
+    color: Colors.white,    
+  );
+}
+
+/* Medium Text Styler */
+TextStyle mediumStyle(Color customColor) {
+  return TextStyle(
+    color: customColor,
+    fontSize: 17    
   );
 }
