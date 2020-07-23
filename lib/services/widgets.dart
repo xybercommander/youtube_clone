@@ -241,13 +241,13 @@ InputDecoration textFieldInputDecoration(String hintText) {
  return InputDecoration(
     hintText: hintText,
     hintStyle: TextStyle(
-      color: Colors.white38
+      color: Colors.black45
     ),
       focusedBorder: UnderlineInputBorder(
       borderSide: BorderSide(color: Colors.white)
     ),
     enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Colors.white)
+      borderSide: BorderSide(color: Colors.black45)
     )
  );
 }
@@ -256,7 +256,7 @@ InputDecoration textFieldInputDecoration(String hintText) {
 
 TextStyle simpleStyle() {
   return TextStyle(
-    color: Colors.white,    
+    color: Colors.black,    
   );
 }
 

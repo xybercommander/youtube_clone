@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/SigningPages/signin.dart';
+import 'package:youtube_clone/SigningPages/signup.dart';
+import 'package:youtube_clone/helper/authenticate.dart';
 import 'package:youtube_clone/views/following.dart';
 import 'package:youtube_clone/views/home.dart';
 import 'package:youtube_clone/views/mychannel.dart';
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SignIn(),
+      home: Authenticate(),
     );
   }
 }
