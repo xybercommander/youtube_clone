@@ -34,14 +34,14 @@ class _VideoPageState extends State<VideoPage> {
                     Row(
                       children: <Widget>[
                         IconButton(
-                          icon: Icon(Icons.arrow_left),
+                          icon: Image.asset("assets/Back.png", height: 20, width: 20,),
                           onPressed: () {
                             Navigator.pop(context);
                           },
                         ),
                         Spacer(),
                         IconButton(
-                          icon: Icon(Icons.menu),
+                          icon: Image.asset("assets/More.png", height: 20, width: 20,),
                           onPressed: () {
                             
                           },
