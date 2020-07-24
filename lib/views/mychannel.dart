@@ -3,7 +3,10 @@ import 'package:youtube_clone/ChannelPages/allvideos.dart';
 import 'package:youtube_clone/ChannelPages/newUploads.dart';
 import 'package:youtube_clone/followPages/followers.dart';
 import 'package:youtube_clone/followPages/follwing.dart';
+import 'package:youtube_clone/helper/authenticate.dart';
 import 'package:youtube_clone/helper/constants.dart';
+import 'package:youtube_clone/helper/helperfunctions.dart';
+import 'package:youtube_clone/services/auth.dart';
 import 'package:youtube_clone/services/widgets.dart';
 
 class MyChannel extends StatefulWidget {
@@ -16,6 +19,7 @@ class _MyChannelState extends State<MyChannel> {
   PageController pageController = new PageController();
   int pageIndex = 0;
 
+  AuthMethods authMethods = new AuthMethods();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,10 @@ class _MyChannelState extends State<MyChannel> {
             IconButton(
               icon: Image.asset("assets/MenuDark.png", height: 20, width: 25,),
               onPressed: () {
-                print("object");
+                authMethods.signOut();
+                HelperFunctions.saveUserLoggedInSharedPreference(false);
+                Navigator.pop(context);
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authenticate()));
               },              
             )
           ],
@@ -50,7 +57,10 @@ class _MyChannelState extends State<MyChannel> {
               children: <Widget>[
                 Image.asset("assets/Profile1.png", height: 61, width: 61,),
                 SizedBox(width: 20,),
-                Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),),
+                FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),)
+                ),
                 Spacer(),
                 Image.asset("assets/Upload.png", height: 60, width: 110,)
               ],

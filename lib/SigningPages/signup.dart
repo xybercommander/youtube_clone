@@ -19,6 +19,7 @@ class _SignUpState extends State<SignUp> {
 
   final formKey = GlobalKey<FormState>();
   bool showPassword = false;
+  bool isLoading = false;
   TextEditingController channelNameTextEditingController = new TextEditingController();
   TextEditingController emailTextEditingController = new TextEditingController();
   TextEditingController passwordTextEditingController = new TextEditingController();
@@ -26,8 +27,13 @@ class _SignUpState extends State<SignUp> {
   AuthMethods authMethods = new AuthMethods();
   DatabaseMethods databaseMethods = new DatabaseMethods();
 
+
   signMeUp(String email, String password, String channelName) {
     if(formKey.currentState.validate()) {
+
+      setState(() {
+        isLoading = true;
+      });
 
       Map<String, String> userInfoMap = {
         "channelName" : channelName,
@@ -57,7 +63,9 @@ class _SignUpState extends State<SignUp> {
         centerTitle: true,
         elevation: 3,
       ),
-      body: SingleChildScrollView(
+      body: isLoading ? 
+      Container(child: Center(child: CircularProgressIndicator(),),) : 
+      SingleChildScrollView(
         child: Container(
           color: Colors.white,
           height: MediaQuery.of(context).size.height - 100,

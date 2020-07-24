@@ -19,6 +19,12 @@ class _SignInState extends State<SignIn> {
   TextEditingController passwordTextEditingController = new TextEditingController();
 
 
+  signIn() {
+    
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +132,7 @@ class _SignInState extends State<SignIn> {
                     gradient: LinearGradient(colors: [Colors.red[600], Colors.red[900]]),
                     borderRadius: BorderRadius.circular(30)
                   ),
-                  child: Text("Sign In with Google", style: mediumStyle(Colors.black),)
+                  child: Text("Sign In with Google", style: mediumStyle(Colors.white),)
                 ),
                 SizedBox(height: 16,),
                 Row(
