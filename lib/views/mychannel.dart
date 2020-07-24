@@ -8,6 +8,7 @@ import 'package:youtube_clone/helper/constants.dart';
 import 'package:youtube_clone/helper/helperfunctions.dart';
 import 'package:youtube_clone/services/auth.dart';
 import 'package:youtube_clone/services/widgets.dart';
+import 'package:youtube_clone/views/settings.dart';
 
 class MyChannel extends StatefulWidget {
   @override
@@ -18,8 +19,22 @@ class _MyChannelState extends State<MyChannel> {
 
   PageController pageController = new PageController();
   int pageIndex = 0;
+  String channelName;
 
   AuthMethods authMethods = new AuthMethods();
+
+  void getChannelName() async {
+    channelName = await HelperFunctions.getChannelNameSharedPreference();
+    setState(() {
+      Constants.myChannelName = channelName;
+    });
+  }
+
+  @override
+  void initState() { 
+    getChannelName();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +52,11 @@ class _MyChannelState extends State<MyChannel> {
             IconButton(
               icon: Image.asset("assets/MenuDark.png", height: 20, width: 25,),
               onPressed: () {
-                authMethods.signOut();
-                HelperFunctions.saveUserLoggedInSharedPreference(false);
-                Navigator.pop(context);
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authenticate()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+                // authMethods.signOut();
+                // HelperFunctions.saveUserLoggedInSharedPreference(false);
+                // Navigator.pop(context);
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authenticate()));
               },              
             )
           ],
