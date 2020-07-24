@@ -1,5 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/helper/constants.dart';
+import 'package:youtube_clone/helper/helperfunctions.dart';
+import 'package:youtube_clone/main.dart';
+import 'package:youtube_clone/services/auth.dart';
+import 'package:youtube_clone/services/database.dart';
 import 'package:youtube_clone/services/widgets.dart';
+import 'package:youtube_clone/views/home.dart';
+import 'package:youtube_clone/views/mainpage.dart';
 
 class SignIn extends StatefulWidget {
 
@@ -14,13 +22,41 @@ class _SignInState extends State<SignIn> {
 
   final formKey = GlobalKey<FormState>();
   bool showPassword = false;
+  bool isLoading = false;
+  QuerySnapshot snapshotUserInfo;
 
   TextEditingController emailTextEditingController = new TextEditingController();
   TextEditingController passwordTextEditingController = new TextEditingController();
 
+  AuthMethods authMethods = new AuthMethods();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
 
-  signIn() {
-    
+  signIn(String email, String password) {
+    if (formKey.currentState.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+      HelperFunctions.saveUserEmailSharedPreference(email);
+
+      databaseMethods.getUserByEmail(email).then((value) async {
+        setState(() {
+          snapshotUserInfo = value;
+        });
+        HelperFunctions.saveChannelNameSharedPreference(
+          snapshotUserInfo.documents[0].data["channelName"]
+        );
+        Constants.myChannelName = await HelperFunctions.getChannelNameSharedPreference();
+      });
+
+      authMethods.signInWithEmailAndPassword(email, password).then((value) {
+        if (value != null) {
+          HelperFunctions.saveUserLoggedInSharedPreference(true);
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => MainPage(),
+          ));
+        }
+      });    
+    }
   }
 
 
@@ -34,7 +70,10 @@ class _SignInState extends State<SignIn> {
         centerTitle: true,
         elevation: 3,
       ),
-      body: SingleChildScrollView(
+
+      body: isLoading ? 
+      Container(child: Center(child: CircularProgressIndicator(),),) : 
+      SingleChildScrollView(
         child: Container(
           color: Colors.white,
           height: MediaQuery.of(context).size.height - 100,
@@ -107,7 +146,7 @@ class _SignInState extends State<SignIn> {
                 SizedBox(height: 16,),
                 GestureDetector(
                   onTap: () {
-                    // signIn();
+                    signIn(emailTextEditingController.text, passwordTextEditingController.text);
                     print("Signed in");
                   },
                   child: Container(

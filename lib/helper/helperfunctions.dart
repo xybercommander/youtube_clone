@@ -33,7 +33,7 @@ class HelperFunctions {
     return await prefs.getBool(sharedPreferenceUserLogggedInKey);
   }
 
-  static Future<String> getUserNameSharedPreference() async {
+  static Future<String> getChannelNameSharedPreference() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return await prefs.getString(sharedPreferenceChannelNameKey);
   }
