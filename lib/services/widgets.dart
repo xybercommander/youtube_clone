@@ -203,6 +203,18 @@ Widget textInChannelPage(String number, String numberType) {
 }
 
 
+// Widget for list tiles in settings page
+Widget settingListTile(context, String buttonIcon, String label, Color color) {
+  return Row(
+    children: <Widget>[
+      Image.asset("assets/$buttonIcon", height: 30, width: 30, color: color,),
+      SizedBox(width: 30,),
+      Text(label, style: TextStyle(fontSize: 20, color: Colors.grey[700]),)
+    ],
+  );
+}
+
+
 // Widget for list tiles in followers page
 Widget profileListTile(context, String button) {
   return Container(

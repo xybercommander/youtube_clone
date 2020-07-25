@@ -20,13 +20,18 @@ class _MyChannelState extends State<MyChannel> {
   PageController pageController = new PageController();
   int pageIndex = 0;
   String channelName;
+  String displayChannelName;
+  List<String> menuItems = ["Analytics", "Coins", "Settings"];
+  String selectedMenuItem;
 
   AuthMethods authMethods = new AuthMethods();
+
+
 
   void getChannelName() async {
     channelName = await HelperFunctions.getChannelNameSharedPreference();
     setState(() {
-      Constants.myChannelName = channelName;
+      displayChannelName = channelName;
     });
   }
 
@@ -46,18 +51,16 @@ class _MyChannelState extends State<MyChannel> {
             color: Colors.grey[600]
           ),
           backgroundColor: Colors.white,
-          title: Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[500]),),
+          title: Text(displayChannelName, style: TextStyle(color: Colors.grey[500]),),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
               icon: Image.asset("assets/MenuDark.png", height: 20, width: 25,),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
-                // authMethods.signOut();
-                // HelperFunctions.saveUserLoggedInSharedPreference(false);
-                // Navigator.pop(context);
-                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authenticate()));
-              },              
+                print(displayChannelName);
+              },
+                    
             )
           ],
         ),
@@ -75,7 +78,7 @@ class _MyChannelState extends State<MyChannel> {
                 SizedBox(width: 20,),
                 FittedBox(
                   fit: BoxFit.fitWidth,
-                  child: Text(Constants.myChannelName, style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),)
+                  child: Text(displayChannelName, style: TextStyle(color: Colors.grey[700], fontSize: 22, fontWeight: FontWeight.bold),)
                 ),
                 Spacer(),
                 Image.asset("assets/Upload.png", height: 60, width: 110,)

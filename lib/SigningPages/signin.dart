@@ -45,8 +45,9 @@ class _SignInState extends State<SignIn> {
         HelperFunctions.saveChannelNameSharedPreference(
           snapshotUserInfo.documents[0].data["channelName"]
         );
-        Constants.myChannelName = await HelperFunctions.getChannelNameSharedPreference();
       });
+
+      // print(snapshotUserInfo.documents[0].data["channelName"].toString());
 
       authMethods.signInWithEmailAndPassword(email, password).then((value) {
         if (value != null) {
